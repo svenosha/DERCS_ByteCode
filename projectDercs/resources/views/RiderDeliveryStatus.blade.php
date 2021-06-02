@@ -46,11 +46,12 @@ div {text-align: center;}
         
         <!--To show customer information for delivery-->
         <!--Rider need to click on accept or reject button-->
-        <form action="" method="POST">
         <table style="border: 1px solid back;
             border-collapse: collapse;padding: 7px;
         vertical-align: top;text-align: left;">
         <tr>
+        @php($i=1)
+        @foreach ($data as $row1)
         <td colspan="2"; id="ROW1">Delivery Information</td>
         <td>Quotation ID: </td>
         <td>0001</td>
@@ -78,14 +79,16 @@ div {text-align: center;}
         <tr>
         <td>Address:</td>
         <td><input type="text" value="{{$row1->address}}"readonly></td>
-        @if($row1->trackProgress == 'Returning')
-        <form action="evidence" method="post">
+        <!--@if($row1->status == 'pending')-->
+        <form action="accept" method="post">
         @csrf
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
-        <td colspan="2"><button type="submit" name="Accept" value="Accept" class="abutton">Accept
-        &nbsp;<button type="submit" name="Reject" value="Reject" class="rbutton">Reject</td>
-        </form>
+        <td colspan="2">@if(<button type="submit" name="Accept" value="Accept" class="abutton">Accept)
         @endif
+        &nbsp;@if(<button type="submit" name="Reject" value="Reject" class="rbutton">Reject)
+        @endif</td>
+        </form>
+        
         </tr>
         
         @endforeach

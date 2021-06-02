@@ -70,9 +70,9 @@ div {text-align: center;}
         <tr>
         <td>Address:</td>
         <td><input type="text" value="{{$row1->address}}"readonly></td>
-        @if($row1->trackProgress == 'Returning')
-        <form action="evidence" method="post">
-        @csrf
+        
+        <form action="DeliveryEvidence" method="post">
+        
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
         <td colspan="2"><button type="submit" name="Upload" value="Upload" class="button">Upload
         <?php
@@ -91,7 +91,7 @@ div {text-align: center;}
          echo Form::close();
         ?></td>
         </form>
-        @endif
+        
         </tr>
         
         @endforeach

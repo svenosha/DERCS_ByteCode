@@ -29,7 +29,7 @@
         
         <button onclick="window.location.href = 'RiderPickupList';" class="button" >Manage Pickup</button>
         <br><br><br><br>
-        <button onclick="window.location.href = 'RiderDeliveryList.blade.php';" class="button" >Manage Delivery</button>
+        <button onclick="window.location.href = '/viewPendingList'" class="button" >Manage Delivery</button>
         
         
         </div>

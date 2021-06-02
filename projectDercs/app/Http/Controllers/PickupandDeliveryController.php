@@ -6,20 +6,34 @@ use Illuminate\Http\Request;
 use App\Models\Rider;
 use App\Models\Cust;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PickupandDeliveryController extends Controller
 {
-    //
+    //to view all customer information in Rider Delivery List Interface
     public function viewPendingList(Request $req){
         $id = Auth::id();
         $QuotationID = $req->id;
-        $query = DB::select("select * from Quotations where id = '$QuotationID'");
+        $pending = DB::select("select * from _Quotations where id = '$QuotationID'");
+        
 
-
-        return view('RiderDeliverylist', compact('query'));
+        return view('RiderDeliverylist', compact('pending'));
     }
 
-    public function index() {
+    //to view the specific customer delivery information and update whether the rider accpet 
+    //or reject request 
+    public function viewDelInfo(Request $req){
+        $id = Auth::id();
+        $QuotationID = $req->id;
+        $data = DB::select("select * from _Quotations where id = '$QuotationID'");
+        $accept = DB::select("update _Quotations set PickupStatus='Accepted' where id = '$QuotationID'");
+        $rejected = DB::select("update _Quotations set PickupStatus='Rejected' where id = '$QuotationID'");
+
+
+        return view('RiderDeliveryStatus', compact('data','accept','reject'));
+    }
+
+    public function DeliveryEvidence() {
         return view('uploadfile');
      }
      public function showUploadFile(Request $request) {
@@ -47,4 +61,6 @@ class PickupandDeliveryController extends Controller
         //Move Uploaded File
         $destinationPath = 'uploads';
         $file->move($destinationPath,$file->getClientOriginalName());
+
+    } 
 }

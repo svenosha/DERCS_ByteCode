@@ -47,17 +47,17 @@
         <th>Action</th>
         </tr>
         @php($i=1)
-        foreach ($pending as $row)
+        @foreach ($pending as $row)
         <tr>
         <td><input type="text" value="{{$i}}" readonly></td>
         <td><input type="text" value="{{$row->Quotation_ID}}" readonly></td>
         <td><input type="text" value="{{$username}}" readonly></td>
         <td><input type="text" value="{{$Address}}" readonly></td>
         <td>
-        <form action="accept" method="post">
+        <form action="viewPendingList" method="get">
             @csrf
             <input type="hidden" value="{{$row->id}}" name="id">
-            <button class="button" type="submit">Access</button>
+            <button class="button" type="submit" value="Access">Access</button>
         </form>
         </td>
         

@@ -29,8 +29,27 @@ Route::get('rider/home', [App\Http\Controllers\HomeController::class,'riderHome'
 //manage pickup and delivey module
 Route::middleware(['auth'])->group(function(){
 
-    Route::middleware(['isRider'])->group(function(){
-        Route::post('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
+    Route::middleware(['is_rider'])->group(function(){
+        Route::get('/riderPickupDeliveryPage', function () {
+            return view('RiderPickupandDelivery');
+        });
+        Route::get('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
+        Route::post('/viewDelInfo', [App\Http\Controllers\PickupandDeliveryController::class, 'viewDelInfo']);
+        Route::post('/DeliveryEvidence', [App\Http\Controllers\PickupandDeliveryController::class, 'DEliveryEvidence']);
+
+    });
+
+    Route::middleware(['is_cust'])->group(function(){
+        Route::get('/custPickupDeliveryPage', function () {
+            return view('CustPickupandDelivery');
+        });
+
+    });
+
+    Route::middleware(['is_staff'])->group(function(){
+        Route::get('/staffPickupDeliveryPage', function () {
+            return view('StaffPickupandDelivery');
+        });
 
     });
 });

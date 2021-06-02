@@ -22,6 +22,7 @@ class CreateUsersSeeder extends Seeder
             'is_rider'=>'1',
             'phone'=>'0123435',
             'address'=>'no18 taman',  
+            'AccStatus'=>'1',
             
         ]);
   
