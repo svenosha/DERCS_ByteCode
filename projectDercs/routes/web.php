@@ -25,3 +25,18 @@ require 'staff.php';
 // Route::get('/custHome', [App\Http\Controllers\LoginController::class, 'authenticated'])->name('custHome');
 
 Route::get('rider/home', [App\Http\Controllers\HomeController::class,'riderHome'])->name('rider.home')->middleware('is_rider');
+
+//manage pickup and delivey module
+Route::middleware(['auth'])->group(function(){
+
+    Route::middleware(['isRider'])->group(function(){
+        Route::post('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
+
+    });
+});
+
+//to upload image evidence and display the evidence
+Route::get('/uploadfile','PickupadnDeliveryController@index');
+Route::post('/uploadfile','PickupandDEliveryController@showUploadFile');
+
+//end of manage pickup and delivery module
