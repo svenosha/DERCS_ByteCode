@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function(){
             return view('RiderPickupandDelivery');
         });
         Route::get('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
-        Route::post('/viewDelInfo', [App\Http\Controllers\PickupandDeliveryController::class, 'viewDelInfo']);
+        Route::get('/viewDelInfo', [App\Http\Controllers\PickupandDeliveryController::class, 'viewDelInfo']);
         Route::post('/DeliveryEvidence', [App\Http\Controllers\PickupandDeliveryController::class, 'DEliveryEvidence']);
 
     });

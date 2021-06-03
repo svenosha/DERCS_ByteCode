@@ -26,11 +26,12 @@ class PickupandDeliveryController extends Controller
         $id = Auth::id();
         $QuotationID = $req->id;
         $data = DB::select("select * from _Quotations where id = '$QuotationID'");
-        $accept = DB::select("update _Quotations set PickupStatus='Accepted' where id = '$QuotationID'");
-        $rejected = DB::select("update _Quotations set PickupStatus='Rejected' where id = '$QuotationID'");
+        $status = $req->status;
+        $updateStatus = DB::select("update _Quotations set DeliveryStatus='$status' where id = '$QuotationID'");
+        
 
 
-        return view('RiderDeliveryStatus', compact('data','accept','reject'));
+        return view('RiderDeliveryStatus', compact('data','updateStatus'));
     }
 
     public function DeliveryEvidence() {

@@ -79,14 +79,14 @@ div {text-align: center;}
         <tr>
         <td>Address:</td>
         <td><input type="text" value="{{$row1->address}}"readonly></td>
-        <!--@if($row1->status == 'pending')-->
-        <form action="accept" method="post">
+        @if($row1->status == 'pending')
+        <form action="DeliveryStatus" method="post">
         @csrf
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
-        <td colspan="2">@if(<button type="submit" name="Accept" value="Accept" class="abutton">Accept)
+        <td colspan="2"><button type="submit" name="Accept" value="{{$row1->status}}" class="abutton">Accept
+       
+        &nbsp;<button type="submit" name="Reject" value="{{$row1->status}}" class="rbutton">Reject</td>
         @endif
-        &nbsp;@if(<button type="submit" name="Reject" value="Reject" class="rbutton">Reject)
-        @endif</td>
         </form>
         
         </tr>
