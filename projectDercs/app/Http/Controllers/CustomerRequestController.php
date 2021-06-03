@@ -25,6 +25,8 @@ class CustomerRequestController extends Controller
         $add -> DeviceSymptom = $req -> DeviceSymptom;
         $add -> DeviceDamage = $req -> DeviceDamage;
         $add -> DeviceModel = $req -> DeviceModel;
+        //$add -> DateRequest = $req -> '';
+        //$add -> QuotationStatus = $req -> '';
         $add -> save();
 
         $user = new user;
