@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::middleware(['is_staff'])->group(function(){
+    Route::middleware(['guest'])->group(function(){
         Route::get('/staffPickupDeliveryPage', function () {
             return view('StaffPickupandDelivery');
         });
