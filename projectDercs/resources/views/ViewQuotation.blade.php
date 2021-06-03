@@ -38,7 +38,7 @@
     <body>
     <br>
         <br>
-        <!--To show Company DEtails-->
+        <!--To show Company Details-->
         <table>
         <tr>
         <td>DERCS Computer Sdn Bhd <br> B-14, Lorong Pandan Damai, <br> 25150, Kuantan, Pahang
@@ -67,15 +67,21 @@
         
 
         <!--To show device quotation and details-->
-        <form action="" method="POST">
+        <form action="viewQuote" method="POST">
         <table style="border: 1px solid black;
             border-collapse: collapse;padding: 7px;
         vertical-align: top;text-align: left;">
+        @foreach ($data as $row1)
         <thead>
         <th>Item</th>
         <th>Quantity</th>
         <th>Price (RM)</th>
         <th>Decsription</th>
+        <tr>
+        <td><input type="text" value="{{$row1->item}}"readonly></td>
+        <td><input type="text" value="{{$row1->quantity}}"readonly></td>
+        <td><input type="text" value="{{$row1->price}}"readonly></td>
+        <td><input type="text" value="{{$row1->desc}}"readonly></td>
         <tr>
         <td colspan="2">Service Change</td>
         <td><input type="text" value="{{$row1->serviceCharge}}"readonly></td>
@@ -93,7 +99,7 @@
         <button type="submit" name="Pay" value="Pay" class="Rbutton" disabled>Pay
        
         <button type="submit" name="Back" value="Back" class="Rbutton">Back
-        
+        @endforeach
            
        </form>
        

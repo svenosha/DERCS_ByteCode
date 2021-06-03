@@ -64,7 +64,7 @@ div {text-align: center;}
         <td><input type="text" value="{{$row1->Desc}}"readonly></td>
 
         <tr>
-        <td >Service Chanrge (RM):</td>
+        <td >Service Charge (RM):</td>
         <td><input type="text" value="{{$row1->ServiceCharge}}"readonly></td>
         <td>Total need to pay (RM)</td>
         <td><input type="text" value="{{$row1->Total}}"readonly></td>
@@ -79,10 +79,9 @@ div {text-align: center;}
         <form action="acceptCustRequest" method="post">
         @csrf
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
-        <td >@if(<button type="submit" name="Generate" value="Generate" class="rbutton">Generate Quote)
-        @endif
-        &nbsp;@if(<button type="submit" name="Cancel" value="Cancel" class="rbutton">Cancel)
-        @endif</td>
+        <td ><button type="submit" name="Generate" value="Generate" class="rbutton">Generate Quote
+        &nbsp;<button type="submit" name="Cancel" value="Cancel" class="rbutton">Cancel
+        </td>
         </form>
         
         </tr>

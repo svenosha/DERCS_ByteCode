@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function(){
             return view('CustPickupandDelivery');
         });
         Route::post('/CustRequest', [App\Http\Controllers\RequestController::class, 'CustRequest']);
+        Route::post('/viewQuote', [App\Http\Controllers\RequestController::class, 'viewQuote']);
 
     });
 
@@ -50,6 +51,9 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/staffPickupDeliveryPage', function () {
             return view('StaffPickupandDelivery');
         });
+
+        Route::post('/acceptCustRequest', [App\Http\Controllers\RequestController::class, 'acceptCustRequest']);
+        Route::post('/viewCustQuote', [App\Http\Controllers\RequestController::class, 'viewCustQuote']);
 
     });
 });

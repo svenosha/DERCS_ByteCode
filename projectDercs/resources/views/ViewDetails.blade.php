@@ -75,9 +75,9 @@ div {text-align: center;}
         <form action="acceptCustRequest" method="post">
         @csrf
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
-        <td >@if(<button type="submit" name="Accept" value="Accept" class="rbutton">Accept)
+        <td >@if(<button type="submit" name="Accept" value="{$row->status}}" class="rbutton">Accept)
         @endif
-        &nbsp;@if(<button type="submit" name="Reject" value="Reject" class="rbutton">Reject)
+        &nbsp;@if(<button type="submit" name="Reject" value="{$row->status}}" class="rbutton">Reject)
         @endif</td>
         </form>
         
