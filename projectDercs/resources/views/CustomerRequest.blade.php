@@ -38,57 +38,60 @@
     <body>
     <br><h2>CUSTOMER REQUEST</h2>
         <br>
-        <form action="" method="POST">
+        <form action="CustRequest" method="POST">
         <table style="border: 1px white;
             border-collapse: collapse;padding: 7px;
         vertical-align: top;
         text-align: left;">
+        @csrf
+            @foreach($info as $row)
         <tr>
             <td>Name</td>
             <td>:</td>
-            <td><input type="text" name="Cus_Name" placeholder="Customer Name" size="100" required></td>
+            <td><input type="text" value="{{$row->name}}" name="name" placeholder="Customer Name" size="100" required></td>
         </tr>
         <tr>
             <td>Phone Number</td>
             <td>:</td>
-            <td><input type="text" name="Cus_Phone" placeholder="Customer Phone Number" size="100" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"required></td>
+            <td><input type="text" value="{{$row->phone}}" name="phone" placeholder="Customer Phone Number" size="100" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"required></td>
         </tr> 
         <tr>
             <td>Address</td>
             <td>:</td>
-            <td><input type="text" name="Cus_Address" placeholder="Customer Address" size="100" required ></td>
+            <td><input type="text" value="{{$row->address}}" name="address" placeholder="Customer Address" size="100" required ></td>
         </tr> 
         <tr>
             <td>Model</td>
             <td>:</td>
-            <td><input type="text" name="Dev_Model" placeholder="Device Model" size="100" required ></td>
+            <td><input type="text" value="{{$row->DeviceModel}}" name="DeviceModel" placeholder="Device Model" size="100" required ></td>
         </tr> 
         <tr>
             <td>Color</td>
             <td>:</td>
-            <td><input type="text" name="Dev_Color" placeholder="Device Color" size="100" required></td>
+            <td><input type="text" value="{{$row->DEviceColor}}" name="DevicColor" placeholder="Device Color" size="100" required></td>
         </tr>
         <tr>
             <td>Symptom</td>
             <td>:</td>
-            <td><input type="text" name="Dev_Symptom" placeholder="Device Symptom" size="100" required></td>
+            <td><input type="text" value="{{$row->DeviceSymptom}}" name="DeviceSymptom" placeholder="Device Symptom" size="100" required></td>
         </tr>
         <tr>
             <td>Damage</td>
             <td>:</td>
-            <td><input type="text" name="Dev_Damage" placeholder="Device Damage" size="100" required></td>
+            <td><input type="text" value="{{$row->deviceDamage}}" name="DeviceDamage" placeholder="Device Damage" size="100" required></td>
         </tr>
         </table>
         <table>
         <tr>
         <td>
+        <input type="hidden" name="id" value="{{$row->id}}">
         <button type="submit" name="viewQ" value="View Quotation" class="Vbutton" disabled>View Quotation
         </td>
-        <td><button type="submit" name="requestQ" value="Request Quotation" class="Rbutton">Request Quotation
+        <td><button type="submit" name="requestQ" value="RequestQuotation" class="Rbutton">Request Quotation
         </td>
         <td><button type="submit" name="Cancel" value="Cancel" class="Rbutton">Cancel
         </td>
-           
+        @endforeach
        </form>
        
     
