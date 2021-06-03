@@ -13,7 +13,7 @@ class CreateQuotationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('_quotations', function (Blueprint $table) {
+        Schema::create('quotations', function (Blueprint $table) {
             $table->increments('Quotation_ID');
             $table->String('id');
             $table->String('DateRequest');
@@ -45,6 +45,6 @@ class CreateQuotationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_quotations');
+        Schema::dropIfExists('quotations');
     }
 }

@@ -13,7 +13,7 @@ class CreatePaymentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('_payments', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->increments('PaymentID');
             $table->String('PaymentType');
             $table->String('PaymentDate');
@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->String('PaymentTotal');
             $table->String('PaymentStatus');
             $table->timestamps();
+
         });
     }
 
@@ -31,6 +32,6 @@ class CreatePaymentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_payments');
+        Schema::dropIfExists('payments');
     }
 }

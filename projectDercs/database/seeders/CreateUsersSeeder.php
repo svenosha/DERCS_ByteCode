@@ -21,9 +21,22 @@ class CreateUsersSeeder extends Seeder
             'password'  =>  Hash::make('password'),
             'is_rider'=>'1',
             'phone'=>'0123435',
-            'address'=>'no18 taman',  
+            'address'=>'no18 taman', 
+            'AccStatus'=>'1', 
+
             
         ]);
+
+        DB::table('users')->insert([
+            'name'      =>  'cust1',
+              'email'     =>  'cust@cust.com',
+              'password'  =>  Hash::make('password'),
+              'is_rider'=>'0',
+              'phone'=>'0123435',
+              'address'=>'no18 taman',  
+              'AccStatus'=>'1',
+              
+          ]);
   
     }
 }

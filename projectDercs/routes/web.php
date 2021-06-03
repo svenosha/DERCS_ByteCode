@@ -39,21 +39,17 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::middleware(['is_cust'])->group(function(){
-        Route::get('/custPickupDeliveryPage', function () {
-            return view('CustPickupandDelivery');
-        });
-        Route::post('/CustRequest', [App\Http\Controllers\RequestController::class, 'CustRequest']);
-        Route::post('/viewQuote', [App\Http\Controllers\RequestController::class, 'viewQuote']);
+        
+        Route::get('/CustRequest', [App\Http\Controllers\CustomerRequestController::class, 'CustRequest']);
+        Route::post('/viewQuote', [App\Http\Controllers\CustomerRequestController::class, 'viewQuote']);
 
     });
 
     Route::middleware(['is_staff'])->group(function(){
-        Route::get('/staffPickupDeliveryPage', function () {
-            return view('StaffPickupandDelivery');
-        });
+       
 
-        Route::post('/acceptCustRequest', [App\Http\Controllers\RequestController::class, 'acceptCustRequest']);
-        Route::post('/viewCustQuote', [App\Http\Controllers\RequestController::class, 'viewCustQuote']);
+        Route::post('/acceptCustRequest', [App\Http\Controllers\CustomerRequestController::class, 'acceptCustRequest']);
+        Route::post('/viewCustQuote', [App\Http\Controllers\CustomerRequestController::class, 'viewCustQuote']);
 
     });
 });

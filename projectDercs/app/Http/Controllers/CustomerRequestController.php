@@ -17,8 +17,8 @@ class CustomerRequestController extends Controller
         $address = $req -> address;
         $phone = $req -> phone;
 
-        $add = new quoatation;
-        $add -> userID = $req -> id;
+        $add = new Quotation;
+        $add -> id = $req -> id;
         
         $add -> DeviceModel = $req -> DeviceModel;
         $add -> DeviceColor = $req -> DeviceColor;
