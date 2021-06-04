@@ -34,7 +34,7 @@
     </style>
     
    
-    
+    <!--This interafce is for customer to request for quotation-->
     <body>
     <br><h2>CUSTOMER REQUEST</h2>
         <br>
