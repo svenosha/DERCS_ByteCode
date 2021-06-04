@@ -31,6 +31,7 @@
     
     <body>
     <br>
+    <center>
     <h1>Rider Delivery List</h2>
         <br>
         
@@ -51,8 +52,8 @@
         <tr>
         <td><input type="text" value="{{$i}}" readonly></td>
         <td><input type="text" value="{{$row->Quotation_ID}}" readonly></td>
-        <td><input type="text" value="{{$username}}" readonly></td>
-        <td><input type="text" value="{{$Address}}" readonly></td>
+        <td><input type="text" value="{{$row->name}}" readonly></td>
+        <td><input type="text" value="{{$row->address}}" readonly></td>
         <td>
         <form action="viewPendingList" method="get">
             @csrf
@@ -73,5 +74,5 @@
        
     
     </body>
-    
+    </center>
 </html>

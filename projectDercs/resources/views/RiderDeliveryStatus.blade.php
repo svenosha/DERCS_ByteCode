@@ -80,7 +80,7 @@ div {text-align: center;}
         <td>Address:</td>
         <td><input type="text" value="{{$row1->address}}"readonly></td>
         @if($row1->status == 'pending')
-        <form action="DeliveryStatus" method="post">
+        <form action="viewDelInfo" method="post">
         @csrf
         <input type="hidden" value="{{$row1->id}}" name="Quotation_ID">
         <td colspan="2"><button type="submit" name="Accept" value="{{$row1->status}}" class="abutton">Accept

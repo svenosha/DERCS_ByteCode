@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Rider;
-use App\Models\Cust;
+use App\Models\User;
+use App\Models\Staff;
+use App\Models\quotation;
+use App\Models\payment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +16,10 @@ class PickupandDeliveryController extends Controller
     public function viewPendingList(Request $req){
         $id = Auth::id();
         $QuotationID = $req->id;
-        $pending = DB::select("select * from _Quotations where id = '$QuotationID'");
+        $pending = DB::select("select quotations.Quotation_ID, users.name, users.address from users join quotations on users.id = quotations.id where quotations.Quotation_ID = '$QuotationID'");
         
 
-        return view('RiderDeliverylist', compact('pending'));
+        return view('RiderDeliveryList', compact('pending'));
     }
 
     //to view the specific customer delivery information and update whether the rider accpet 
@@ -25,9 +27,9 @@ class PickupandDeliveryController extends Controller
     public function viewDelInfo(Request $req){
         $id = Auth::id();
         $QuotationID = $req->id;
-        $data = DB::select("select * from _Quotations where id = '$QuotationID'");
+        $data = DB::select("select * from quotations where id = '$QuotationID'");
         $status = $req->status;
-        $updateStatus = DB::select("update _Quotations set DeliveryStatus='$status' where id = '$QuotationID'");
+        $updateStatus = DB::select("update quotations set DeliveryStatus='$status' where id = '$QuotationID'");
         
 
 

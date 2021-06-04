@@ -15,7 +15,7 @@ class CreateUsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        /* DB::table('users')->insert([
           'name'      =>  'rider1',
             'email'     =>  'rider@rider.com',
             'password'  =>  Hash::make('password'),
@@ -37,6 +37,6 @@ class CreateUsersSeeder extends Seeder
               'AccStatus'=>'1',
               
           ]);
-  
+   */
     }
 }
