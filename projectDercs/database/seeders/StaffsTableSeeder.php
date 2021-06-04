@@ -13,7 +13,7 @@ class StaffsTableSeeder extends Seeder
      *
      * @return void
      */
-    /* public function run()
+    public function run()
     {
         $faker = Faker::create();
 
@@ -22,5 +22,5 @@ class StaffsTableSeeder extends Seeder
             'email'     =>  'staff@staff.com',
             'password'  =>  bcrypt('password'),
         ]);
-    } */
+    }
 }
