@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function(){
         //Navigate to following functions in PickupadnDeliveryController
         Route::get('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
         Route::get('/viewDelInfo', [App\Http\Controllers\PickupandDeliveryController::class, 'viewDelInfo']);
-        Route::post('/DeliveryEvidence', [App\Http\Controllers\PickupandDeliveryController::class, 'DEliveryEvidence']);
+        Route::post('/DeliveryEvidence', [App\Http\Controllers\PickupandDeliveryController::class, 'DeliveryEvidence']);
 
     });
 
