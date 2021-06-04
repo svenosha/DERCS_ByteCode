@@ -33,7 +33,7 @@
     
         <br>
         
-        <!--To show pickup customer invoice list-->
+        <!--To show customer quotation's delivery status-->
         <p>Hi Teoh Jia En, this is your delivery status:</p>
         <form action="" method="POST">
         <table style="border: 1px solid black;

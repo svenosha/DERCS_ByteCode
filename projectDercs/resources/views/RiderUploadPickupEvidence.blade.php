@@ -34,7 +34,7 @@ div {text-align: center;}
     <h1>Pickup Information</h2>
         <br>
         
-        <!--Rider need to upload pickup evidence-->
+        <!--Rider need to upload delivery and COD evidence-->
         <form action="" method="POST">
         <table style="border: 1px solid back;
             border-collapse: collapse;padding: 7px;

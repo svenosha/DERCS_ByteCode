@@ -27,18 +27,23 @@ require 'staff.php';
 Route::get('rider/home', [App\Http\Controllers\HomeController::class,'riderHome'])->name('rider.home')->middleware('is_rider');
 
 //manage pickup and delivey module
+//Only user that has authentication can navigate to following functions
 Route::middleware(['auth'])->group(function(){
 
+    //to check if the user have rider access, if not they have to login as rider before proceed
     Route::middleware(['is_rider'])->group(function(){
         Route::get('/riderPickupDeliveryPage', function () {
             return view('RiderPickupandDelivery');
         });
+
+        //Navigate to following functions in PickupadnDeliveryController
         Route::get('/viewPendingList', [App\Http\Controllers\PickupandDeliveryController::class, 'viewPendingList']);
         Route::get('/viewDelInfo', [App\Http\Controllers\PickupandDeliveryController::class, 'viewDelInfo']);
         Route::post('/DeliveryEvidence', [App\Http\Controllers\PickupandDeliveryController::class, 'DEliveryEvidence']);
 
     });
 
+    //to check if the user have customer access, if not they have to login as customer before proceed
     Route::middleware(['is_cust'])->group(function(){
         Route::get('/custPickupDeliveryPage', function () {
             return view('CustPickupandDelivery');
@@ -46,6 +51,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
+    //to check if the user have staff access, if not they have to login as staff before proceed
     Route::middleware(['guest'])->group(function(){
         Route::get('/staffPickupDeliveryPage', function () {
             return view('StaffPickupandDelivery');

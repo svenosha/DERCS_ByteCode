@@ -23,7 +23,7 @@
     
     <body>
     <br>
-    
+        <!--To navigate to StaffPickupList and StaffDEliveryList-->
         <br><br><br><br><br><br>
         <div>
         <p>Please choose service for printing of invoice:</p>

@@ -33,7 +33,7 @@
     <h1>Rider Pickup List</h2>
         <br>
         
-        <!--To show pickup customer invoice list-->
+        <!--To show customer delivery invoice list that has benn accept by rider-->
         <p>Pickup Invoice:</p>
         <form action="" method="POST">
         <table style="border: 1px solid black;

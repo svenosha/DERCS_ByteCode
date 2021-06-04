@@ -23,7 +23,7 @@
     
     <body>
     <br>
-    
+        <!--To navigate to CustPickupStatusList and CustDeliveryStatuslist-->
         <br><br><br><br><br><br>
         <div>
         <p>Hi Teoh Jia En, please choose the service to view status:</p>

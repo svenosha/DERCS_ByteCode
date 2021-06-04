@@ -23,7 +23,7 @@
     
     <body>
     <br>
-    
+        <!--For rider to navigate to RiderPickupList or RiderDeliveryList-->
         <br><br><br><br><br><br>
         <div>
         

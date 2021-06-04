@@ -34,6 +34,7 @@ class PickupandDeliveryController extends Controller
         return view('RiderDeliveryStatus', compact('data','updateStatus'));
     }
 
+    //to upload the image as evidence
     public function DeliveryEvidence() {
         return view('uploadfile');
      }

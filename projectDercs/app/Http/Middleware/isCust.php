@@ -14,6 +14,9 @@ class IsCust
      * @param  \Closure  $next
      * @return mixed
      */
+
+    //check if the user has customer access
+    //is_rider=0 refer to customer and is_rider=1 refer to rider
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->is_rider == 0){
