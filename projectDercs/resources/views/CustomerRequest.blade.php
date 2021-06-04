@@ -85,6 +85,9 @@
         <tr>
         <td>
         <input type="hidden" name="id" value="{{$row->id}}">
+        <input type="hidden" name="ServiceType" value="{{$row->ServiceType}}='Pickup">
+        <input type="hidden" name="PickupStatus" value="{{$row->PickupStatus}}='Pending">
+        <input type="hidden" name="DeliveryStatus" value="{{$row->DeliveryStatus}}='Pending">
         <button type="submit" name="viewQ" value="View Quotation" class="Vbutton" disabled>View Quotation
         </td>
         <td><button type="submit" name="requestQ" value="RequestQuotation" class="Rbutton">Request Quotation

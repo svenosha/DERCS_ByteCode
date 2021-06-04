@@ -10,23 +10,35 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerRequestController extends Controller
 {
-    //save customer request into databse
+    //save customer request into database
     public function CustRequest(Request $req){
         $userID = $req -> id;
         $name = $req -> name;
         $address = $req -> address;
         $phone = $req -> phone;
 
+        //the null value is given because for now the data is not available yet
         $add = new Quotation;
         $add -> id = $req -> id;
-        
         $add -> DeviceModel = $req -> DeviceModel;
         $add -> DeviceColor = $req -> DeviceColor;
         $add -> DeviceSymptom = $req -> DeviceSymptom;
         $add -> DeviceDamage = $req -> DeviceDamage;
         $add -> DeviceModel = $req -> DeviceModel;
-        //$add -> DateRequest = $req -> '';
-        //$add -> QuotationStatus = $req -> '';
+        $add -> DateRequest = $req -> NULL;
+        $add -> QuotationStatus = $req -> NULL;
+        $add -> QuotationNote = $req -> NULL;
+        $add -> ServiceType = $req -> ServiceType;
+        $add -> PickupStatus = $req -> PickupStatus;
+        $add -> DeliveryStatus = $req -> DeliveryStatus;
+        $add -> PickupEvidence = $req -> NULL;
+        $add -> DeliveryEvidence = $req -> NULL;
+        $add -> CODEvidence = $req -> NULL;
+        $add -> RepairPrice = $req -> NULL;
+        $add -> RepairStatus = $req -> NULL;
+        $add -> RepairDetails = $req -> NULL;
+        $add -> TrackPickup = $req -> NULL;
+        $add -> TrackDelivery = $req -> TrackDelivery;
         $add -> save();
 
         $user = new user;
@@ -40,6 +52,7 @@ class CustomerRequestController extends Controller
         return redirect()->back() ->with('alert', ' Your Request has been send to the staff!');
     }
 
+    //to retrieve the customer quotation and item info from the database and display it
     public function CustQuote(){
         $id = Auth::id();
         $info = DB::select("select * from users where id = '$id'");
